@@ -1,27 +1,92 @@
+var Lowercase = ["a", "b",]
+var Uppercase = ['A']
+var Numbers = ["1",]
+var Symbols = ["!",]
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+function getRandom(arr){
+    var randomIndex = Math.floor(Math.random()*arr.length)
+    var randomElement = arr[randomIndex]
+    return randomElement
+}
 
 function generatePassword() {
-    console.log("You clicked me real good...")
-
-//1. Prompt user for the password criteria 
-//   a. Password length between 8-128
-//   b. Lowercase
-//   c. Upercase
-//   d. Numbers
-//   e. Symbools
-//2. Validate the input 
-//3. Generate password based on criteria
-
-
-
-
-
-
-//4. Display password on the page
     
 
-    return "Look at me, here..."
+//1. Prompt user for the password criteria 
+//   a. Password length between 8-128 (prompt)
+var L = parseInt(prompt ("How many characters would you like password to contain between 8-128"))
+
+
+if (L< 8 || L > 128) {
+    alert ("Must be between 8-128 characters")
+    return null
+}
+
+if (Number.isNaN(L)) {
+    alert ("Must be a number")
+    return null
+}
+//   b. Lowercase (confirm)
+var hasLowercase = confirm ("Would you like to include Lowercase letters?")
+//   c. Upercase (confirm)
+var hasUppercase = confirm ("Would you like to include Uppercase letters?")
+//   d. Numbers
+var hasNumbers = confirm ("Would you like to include numbers?")
+//   e. Symbools
+var hasSymbols = confirm ("Would you like to include symbols")
+
+//2. Validate the input
+
+if (!hasLowercase && !hasUppercase && !hasNumbers && !hasSymbols) {
+    alert ("Must pick at least one criteria")
+    return null
+}
+
+//Save Criteria to an object
+
+var passwordCriteria = {
+    L:L,
+    hasLowercase:hasLowercase,
+    hasUppercase:hasUppercase,
+    hasNumbers:hasNumbers,
+    hasSymbols:hasSymbols,
+}
+
+//3. Generate password based on criteria
+var result = []
+var possibleCharacters = []
+var guaranteedCharacters = []
+
+if (!passwordCriteria) {
+    return null
+}
+if (passwordCriteria.hasLowercase) {
+    possibleCharacters = possibleCharacters.concat(Lowercase)
+    guaranteedCharacters.push(getRandom(Lowercase))
+}
+//4. display message on page 
+//do same for other criteria, then loop through password criteria then one for possible characters
+//lookup join method
+or (var i = 0; i < options.length; i++) {
+    var possibleCharacter = getRandom(possibleCharacters);
+
+    result.push(possibleCharacter);
+  }
+
+  // Mix in at least one of each guaranteed character in the result
+  for (var i = 0; i < guaranteedCharacters.length; i++) {
+    result[i] = guaranteedCharacters[i];
+  }]
+
+
+
+
+
+
+    
+
+    
 }
 
 // Write password to the #password input
