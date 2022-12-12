@@ -2,7 +2,6 @@ var lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m"
 var uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 var numbers = ["0","1", "2", "3", "4", "5", "6", "7", "8", "9"]
 var symbols = ["!", "@", "#", "$", "%", "^", "&", "*"]
-
 var result = []
 var possibleCharacters = []
 var guaranteedCharacters = []
@@ -13,13 +12,13 @@ function getRandom(arr){
     var randomElement = arr[randomIndex]
     return randomElement
 }
-
 function generatePassword() {
     
     //1. Prompt user for the password criteria 
 //   a. Password length between 8-128 (prompt)
 var len = parseInt(prompt ("How many characters would you like password to contain between 8-128"))
 console.log(len)
+
 if (len< 8 || len > 128) {
     alert ("Must be between 8-128 characters")
     return null
@@ -39,12 +38,10 @@ var hasNumbers = confirm ("Would you like to include numbers?")
 var hasSymbols = confirm ("Would you like to include symbols")
 
 //2. Validate the input
-
 if (!hasLowercase && !hasUppercase && !hasNumbers && !hasSymbols) {
     alert ("Must pick at least one criteria")
     return null
 }
-
 //Save Criteria to an object
 
 var passwordCriteria = {
@@ -54,10 +51,7 @@ var passwordCriteria = {
     hasNumbers:hasNumbers,
     hasSymbols:hasSymbols,
 }
-
-
 //3. Generate password based on criteria
-
 
 if (!passwordCriteria) {
     return null
@@ -82,18 +76,17 @@ if (passwordCriteria.hasSymbols) {
 //4. display message on page 
 //do same for other criteria, then loop through password criteria then one for possible characters
 //lookup join method
-
-
- for (var i = 0; i < passwordCriteria.length; i++) {
+console.log(passwordCriteria.len)
+for (var i = 0; i < passwordCriteria.len; i++) {
        var possibleCharacter = getRandom(possibleCharacters);
-
+       console.log(possibleCharacter)
        result.push(possibleCharacter);
 }
-
+console.log(result)
 
    // Mix in at least one of each guaranteed character in the result
-   for (var i = 0; i < guaranteedCharacters.length; i++) {
-    console.log(guaranteedCharacters.length)
+for (var i = 0; i < guaranteedCharacters.length; i++) {
+     console.log(guaranteedCharacters.length)
      result[i] = guaranteedCharacters[i];
 }
 console.log(result)
@@ -109,6 +102,5 @@ function writePassword() {
   passwordText.value = password;
 
 }
-
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
