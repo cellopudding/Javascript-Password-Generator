@@ -9,3 +9,4 @@ N/A
 
 ## License 
 N/A
+![JavaScript Password Generator](https://user-images.githubusercontent.com/117662089/207125567-3cb5d43d-3a81-4631-92e8-79a963eaea77.png)
