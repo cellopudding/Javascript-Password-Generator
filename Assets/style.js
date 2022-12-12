@@ -99,15 +99,6 @@ if (passwordCriteria.hasSymbols) {
 console.log(result)
 console.log(guaranteedCharacters[i])
 return result.join("")
-
-
-
-
-
-
-    
-
-    
 }
 
 // Write password to the #password input
