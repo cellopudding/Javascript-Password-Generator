@@ -17,7 +17,6 @@ function generatePassword() {
     //1. Prompt user for the password criteria 
 //   a. Password length between 8-128 (prompt)
 var len = parseInt(prompt ("How many characters would you like password to contain between 8-128"))
-console.log(len)
 
 if (len< 8 || len > 128) {
     alert ("Must be between 8-128 characters")
@@ -82,25 +81,20 @@ for (var i = 0; i < passwordCriteria.len; i++) {
        console.log(possibleCharacter)
        result.push(possibleCharacter);
 }
-console.log(result)
 
-   // Mix in at least one of each guaranteed character in the result
+// Mix in at least one of each guaranteed character in the result
 for (var i = 0; i < guaranteedCharacters.length; i++) {
      console.log(guaranteedCharacters.length)
      result[i] = guaranteedCharacters[i];
 }
-console.log(result)
-console.log(guaranteedCharacters[i])
 return result.join("")
 }
-
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
